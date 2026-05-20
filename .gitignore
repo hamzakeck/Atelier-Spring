@@ -1,0 +1,25 @@
+# IDE
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+
+# Build
+**/target/
+**/build/
+**/node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.mysqlenv
+
+# PDF
+*.pdf
+
+# Misc
+**/dependency-tree.txt

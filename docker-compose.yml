@@ -1,0 +1,52 @@
+services:
+  mysqldb:
+    image: mysql
+    container_name: mysqldb
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: miola
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - spring-net
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  springboot-app:
+    build: ./SpringDataRest back end
+    container_name: springboot-app
+    restart: always
+    ports:
+      - "9090:8082"
+    environment:
+      MYSQL_HOST: mysqldb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_PORT: 3306
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+    networks:
+      - spring-net
+
+  react-frontend:
+    build: ./Spring front-end/reactjs
+    container_name: react-frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - springboot-app
+    networks:
+      - spring-net
+
+volumes:
+  mysql-data:
+
+networks:
+  spring-net:
