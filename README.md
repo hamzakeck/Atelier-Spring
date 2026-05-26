@@ -6,9 +6,7 @@ Application full-stack : **React** + **Spring Boot** + **MySQL** + **Spring AI (
 
 ## Architecture
 
-React (port 3000) → Spring Boot (port 8082) → MySQL (port 3306)
-                                    ↓
-                              Ollama / Mistral (port 11434)
+[React (port 3000)] → [Spring Boot (port 8082)] → [MySQL (port 3306)] and [Ollama / Mistral (port 11434)]
 
 ## Fonctionnalités
 
