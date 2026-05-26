@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: voiture-app
+data:
+  MYSQL_HOST: "mysqldb"
+  MYSQL_PORT: "3306"
+  MYSQL_DATABASE: "miola"
+  MYSQL_USER: "root"
+  OLLAMA_HOST: "ollama"
+  OLLAMA_PORT: "11434"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: app-secrets
+  namespace: voiture-app
+type: Opaque
+data:
+  # base64 encoded value of "root"
+  MYSQL_ROOT_PASSWORD: cm9vdA==
+  MYSQL_PASSWORD: cm9vdA==

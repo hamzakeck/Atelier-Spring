@@ -7,6 +7,7 @@ import NavigationBar from './Components/NavigationBar';
 import Bienvenue from './Components/Bienvenue';
 import Voiture from './Components/Voiture';
 import VoitureListe from './Components/VoitureListe';
+import AiChat from './Components/AiChat';
 import Footer from './Components/Footer';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
               <Route path="/add" exact component={Voiture} />
               <Route path="/edit/:id" exact component={Voiture} />
               <Route path="/list" exact component={VoitureListe} />
+              <Route path="/ai" exact component={AiChat} />
             </Switch>
           </Col>
         </Row>
