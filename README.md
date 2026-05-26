@@ -6,17 +6,9 @@ Application full-stack : **React** + **Spring Boot** + **MySQL** + **Spring AI (
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    React["React\n(Nginx)\nPort 3000"]
-    Spring["Spring Boot\nREST API + AI\nPort 8082"]
-    MySQL["MySQL\nPort 3306"]
-    Ollama["Ollama LLM\nMistral\nPort 11434"]
-
-    React -->|HTTP| Spring
-    Spring -->|JPA| MySQL
-    Spring -->|AI Chat| Ollama
-```
+React (port 3000) → Spring Boot (port 8082) → MySQL (port 3306)
+                                    ↓
+                              Ollama / Mistral (port 11434)
 
 ## Fonctionnalités
 
